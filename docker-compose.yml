@@ -1,13 +1,13 @@
 version: '3.7'
 services:
   bot:
-    image: 'python:latest'
+    build: .
     container_name: 'bot'
     restart: always
     volumes:
       - './bot:/bot'
     working_dir: '/bot'
-    command: 'pip3 install -r requirements.txt && python3 main.py'
+    command: 'python3 main.py'
   db:
     image: 'postgres:latest'
     container_name: 'db'
