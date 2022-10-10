@@ -16,6 +16,7 @@ load_cogs = [
     'cogs.voice',
     'cogs.mute',
     'cogs.verify',
+    'cogs.ban'
 ]
 for cog in load_cogs:
     client.load_extension(cog)
