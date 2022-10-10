@@ -10,7 +10,7 @@ class Ban(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(ban_members=True)
-    async def mute(self, ctx, user: discord.Member, *, reason):
+    async def ban(self, ctx, user: discord.Member, *, reason):
         await ctx.guild.ban(user, reason=reason)
         await ctx.send(f'{user.mention} wurde von {ctx.author.mention} gebannt für: {reason}')
         try:
@@ -32,3 +32,8 @@ class Ban(commands.Cog):
         with models.Session() as session:
             session.add(ban)
             session.commit()
+
+
+def setup(client):
+    client.add_cog(Ban(client))
+    print('Fun cog loaded')
